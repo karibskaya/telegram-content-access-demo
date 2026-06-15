@@ -18,13 +18,10 @@ that can move between states.
 
 ## Live Bot
 
-The demo bot is available in Telegram:
-
-```text
-https://t.me/info_access_demo_bot
-```
+[Open the demo bot in Telegram](https://t.me/info_access_demo_bot)
 
 The bot demonstrates the main flow: placeholder video → access check → temporary lesson opening → return to placeholder by timer → repeated opening while access is active.
+
 
 
 ## What problem the bot solves
