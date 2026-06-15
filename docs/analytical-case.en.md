@@ -20,6 +20,15 @@ placeholder video
 
 The user sees one material, while its content changes depending on the access state.
 
+The working demo bot is available in Telegram:
+
+```text
+https://t.me/info_access_demo_bot
+```
+
+It makes it possible to test the mechanism live: enter the demo access group, open the material, watch the temporarily available lesson, wait until it returns to the placeholder, and open the lesson again while access is still active.
+
+
 ## 2. Where the Problem Comes From
 
 Telegram is often used as the main platform for digital education products:
