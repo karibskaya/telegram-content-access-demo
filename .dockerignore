@@ -4,3 +4,9 @@ __pycache__
 .env
 .git
 .DS_Store
+
+README.md
+README.ru.md
+docs/
+.gitignore
+.env.example
