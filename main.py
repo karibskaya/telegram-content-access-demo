@@ -51,7 +51,30 @@ ADMIN_USER_ID = os.getenv("ADMIN_USER_ID", "").strip()
 
 PLACEHOLDER_VIDEO_ID = os.getenv("PLACEHOLDER_VIDEO_ID", "").strip()
 LESSON_VIDEO_ID = os.getenv("LESSON_VIDEO_ID", "").strip()
-LESSON_TTL_SECONDS = int(os.getenv("LESSON_TTL_SECONDS", "30"))
+MAX_LESSON_TTL_SECONDS = 47 * 60 * 60 + 59 * 60  # 172740 seconds
+
+
+def get_lesson_ttl_seconds() -> int:
+    raw_value = os.getenv("LESSON_TTL_SECONDS", "30").strip()
+
+    try:
+        ttl = int(raw_value)
+    except ValueError as exc:
+        raise RuntimeError("LESSON_TTL_SECONDS must be an integer") from exc
+
+    if ttl <= 0:
+        raise RuntimeError("LESSON_TTL_SECONDS must be greater than 0")
+
+    if ttl > MAX_LESSON_TTL_SECONDS:
+        raise RuntimeError(
+            f"LESSON_TTL_SECONDS must not exceed {MAX_LESSON_TTL_SECONDS} seconds "
+            "(47 hours and 59 minutes)"
+        )
+
+    return ttl
+
+
+LESSON_TTL_SECONDS = get_lesson_ttl_seconds()
 
 
 # Demo storage without DB.
