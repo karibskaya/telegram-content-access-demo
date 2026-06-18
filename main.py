@@ -120,6 +120,9 @@ def main_keyboard(user_id: int) -> InlineKeyboardMarkup:
             InlineKeyboardButton("🚪 Выйти из группы", callback_data=CB_LEAVE),
         ],
         [InlineKeyboardButton("🎬 Открыть материал", callback_data=CB_OPEN)],
+        [
+                InlineKeyboardButton("💬 Обсудить похожего бота", url="https://t.me/karibskaya"),
+        ],
     ]
 
     if is_admin(user_id):
@@ -254,6 +257,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "3. Бот проверяет доступ.\n"
         "4. Если доступ есть — заменяет заглушку на урок.\n"
         "5. По таймеру возвращает заглушку обратно.\n\n"
+        "Если вам нужен похожий бот для курса, закрытых уроков, платных материалов или продлений доступа — нажмите «Обсудить похожего бота».\n\n"
         f"Ваш статус: {access_label(user_id)}"
     )
 
